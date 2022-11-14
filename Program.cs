@@ -17,19 +17,34 @@
 // Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
-Console.WriteLine("---------------Задача №2 (66)---------------");
-Console.WriteLine("Введите число M: ");
-int M2 = int.Parse(Console.ReadLine()!);
-Console.WriteLine("Введите число N: ");
-int N2 = int.Parse(Console.ReadLine()!);
-Console.WriteLine($"Результат: {SumNumbers(M2, N2)}");
+// Console.WriteLine("---------------Задача №2 (66)---------------");
+// Console.WriteLine("Введите число M: ");
+// int M2 = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите число N: ");
+// int N2 = int.Parse(Console.ReadLine()!);
+// Console.WriteLine($"Результат: {SumNumbers(M2, N2)}");
 
-int SumNumbers(int start, int end)
-{
-    if (start == end) return start;
-    return (start + SumNumbers(start + 1, end));
-}
+// int SumNumbers(int start, int end)
+// {
+//     if (start == end) return start;
+//     return (start + SumNumbers(start + 1, end));
+// }
 
 // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 // m = 2, n = 3 -> A(m,n) = 9
 // m = 3, n = 2 -> A(m,n) = 29
+
+Console.WriteLine("---------------Задача №3 (68)---------------");
+Console.WriteLine("Введите число m: ");
+int m3 = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите число n: ");
+int n3 = int.Parse(Console.ReadLine()!);
+Console.WriteLine($"Результат: {Ackermann(m3, n3)}");
+//Ackermann(m, n) = Ackermann(m-1, Ackermann(m, n-1))
+
+int Ackermann (int m, int n) //большие значения не считает - идет переполнение стека
+{
+    if (m == 0) return n + 1;
+    if (n == 0) return Ackermann(m - 1, 1);
+    return Ackermann(m-1, Ackermann(m, n-1));
+}
